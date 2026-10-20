@@ -256,13 +256,15 @@
   /* ---------- Live ticker (the bad) ---------- */
 
   const ticker = document.getElementById('ticker');
-  const rate = parseFloat(ticker.dataset.rate) || 0;
-  const tickStart = performance.now();
-  (function tick(now) {
-    const v = Math.floor(((now - tickStart) / 1000) * rate);
-    ticker.textContent = v.toLocaleString();
-    requestAnimationFrame(tick);
-  })(tickStart);
+  if (ticker) {
+    const rate = parseFloat(ticker.dataset.rate) || 0;
+    const tickStart = performance.now();
+    (function tick(now) {
+      const v = Math.floor(((now - tickStart) / 1000) * rate);
+      ticker.textContent = v.toLocaleString();
+      requestAnimationFrame(tick);
+    })(tickStart);
+  }
 
   /* ---------- Map pins ---------- */
 
