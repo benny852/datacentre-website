@@ -219,6 +219,12 @@
 
     const id = current.id;
     const act = current.dataset.act || '';
+    const place = document.getElementById('place');
+    if (place) {
+      const label = current.dataset.place || '';
+      place.textContent = label;
+      place.classList.toggle('is-on', !!label);
+    }
     rackLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
     navLinks.forEach((a) => a.classList.toggle('active', !!act && a.dataset.act === act));
 
