@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATA CENTRES — Know the Machine</title>
+  <meta name="description" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&family=JetBrains+Mono:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-mode="dark">
+
+  <!-- Boot screen -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot__inner">
+      <span class="mono boot__label">SYSTEM BOOT</span>
+      <div class="boot__bar"><span id="bootFill"></span></div>
+      <span class="mono boot__count" id="bootCount">000%</span>
+    </div>
+  </div>
+
+  <!-- Ambient rack LEDs across the whole site -->
+  <canvas id="leds" class="leds" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__mark" data-cursor>DATA CENTRES</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#now" data-act="now" data-cursor>NOW</a><span class="dot">•</span>
+      <a href="#divide" data-act="tension" data-cursor>TENSION</a><span class="dot">•</span>
+      <a href="#horizon" data-act="future" data-cursor>FUTURE</a><span class="dot">•</span>
+      <a href="#pathways" data-act="pathways" data-cursor>PATHWAYS</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" data-cursor><span></span><span></span></button>
+  </header>
+
+  <!-- Rack-unit section indicator -->
+  <aside class="rack" id="rack" aria-label="Section index">
+    <a href="#hero" data-cursor><i></i><span class="mono">U01</span></a>
+    <a href="#brief" data-cursor><i></i><span class="mono">U02</span></a>
+    <a href="#now" data-cursor><i></i><span class="mono">U03</span></a>
+    <a href="#evidence" data-cursor><i></i><span class="mono">U04</span></a>
+    <a href="#field" data-cursor><i></i><span class="mono">U05</span></a>
+    <a href="#divide" data-cursor><i></i><span class="mono">U06</span></a>
+    <a href="#challenge" data-cursor><i></i><span class="mono">U07</span></a>
+    <a href="#tension" data-cursor><i></i><span class="mono">U08</span></a>
+    <a href="#opportunity" data-cursor><i></i><span class="mono">U09</span></a>
+    <a href="#horizon" data-cursor><i></i><span class="mono">U10</span></a>
+    <a href="#future" data-cursor><i></i><span class="mono">U11</span></a>
+    <a href="#educate" data-cursor><i></i><span class="mono">U12</span></a>
+    <a href="#workshop" data-cursor><i></i><span class="mono">U13</span></a>
+    <a href="#transparency" data-cursor><i></i><span class="mono">U14</span></a>
+    <a href="#pathways" data-cursor><i></i><span class="mono">U15</span></a>
+  </aside>
+
+  <main>
+
+    <!-- U01 — HERO -->
+    <section class="hero section" id="hero" data-mode="dark" data-act="frame">
+      <div class="hero__media parallax" data-speed="0.15">
+        <img src="assets/hero.jpg" alt="Blue-lit server aisle inside a datacentre" />
+      </div>
+      <div class="hero__content">
+        <span class="mono tag reveal">Eastern Creek · Blacktown</span>
+        <h1 class="title title--xl split">
+          <span class="line"><span>WHAT YOU</span></span>
+          <span class="line"><span>NEED TO</span></span>
+          <span class="line"><span>KNOW.</span></span>
+        </h1>
+        <p class="lead reveal">Pathways to Societal Transitions</p>
+        <a href="#brief" class="btn reveal" data-cursor><i class="led"></i><span>EDUCATE YOURSELF</span></a>
+      </div>
+      <div class="scroll-cue mono" aria-hidden="true"><span></span>SCROLL</div>
+    </section>
+
+    <!-- U02 — THE BRIEF -->
+    <section class="brief section" id="brief" data-mode="dark" data-act="frame">
+      <div class="section__head">
+        <span class="mono tag reveal">U02 — THE RESEARCH</span>
+        <h2 class="title split">
+          <span class="line"><span>THREE</span></span>
+          <span class="line"><span>QUESTIONS.</span></span>
+        </h2>
+      </div>
+      <ol class="brief__list">
+        <li class="brief__item reveal" data-q="1">
+          <a href="#now" data-cursor>
+            <span class="mono">Q.01 — NOW</span>
+            <span class="brief__q">How this transition is shaping Eastern Creek — the people, and the ground it stands on.</span>
+            <span class="mono brief__go">ENTER →</span>
+          </a>
+        </li>
+        <li class="brief__item reveal" data-q="2">
+          <a href="#divide" data-cursor>
+            <span class="mono">Q.02 — TENSION</span>
+            <span class="brief__q slot" data-slot="[ THE CHALLENGE, THE TENSION, THE OPPORTUNITY ]"></span>
+            <span class="mono brief__go">ENTER →</span>
+          </a>
+        </li>
+        <li class="brief__item reveal" data-q="3">
+          <a href="#horizon" data-cursor>
+            <span class="mono">Q.03 — FUTURE</span>
+            <span class="brief__q">An inclusive future for this place, through education, workshops, and transparency.</span>
+            <span class="mono brief__go">ENTER →</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <div class="handoff reveal">
+      <span class="mono">THE BRIEF</span>
+      <span class="handoff__line"><i></i></span>
+      <span class="mono">Q.01 — NOW</span>
+    </div>
+
+    <!-- U03 — NOW (question 1) -->
+    <section class="inside section" id="now" data-mode="dark" data-act="now">
+      <div class="section__head">
+        <span class="mono tag reveal">U03 — Q.01 — ALYCE</span>
+        <h2 class="title split">
+          <span class="line"><span>HOW IT IS</span></span>
+          <span class="line"><span>SHAPING.</span></span>
+        </h2>
+      </div>
+
+      <p class="reveal prose">CDC stands at 17 Roberts Road, on the corner of Capicure Drive. Six data centres. Four are finished. Two are still being built. The site sits well for transport, in a suburb where 45% of the land is zoned general industrial.</p>
+
+      <div class="methods">
+        <div class="reveal">
+          <span class="mono">01</span>
+          <span>Sensory ethnography. We went and looked.</span>
+        </div>
+        <div class="reveal">
+          <span class="mono">02</span>
+          <span>Governance. Who is allowed to decide.</span>
+        </div>
+        <div class="reveal">
+          <span class="mono">03</span>
+          <span>Stakeholder interviews. We asked.</span>
+        </div>
+        <div class="reveal">
+          <span class="mono">04</span>
+          <span>Thematic analysis. We grouped what we heard.</span>
+        </div>
+      </div>
+
+      <div class="cols">
+        <div class="reveal">
+          <span class="mono tag">COMMUNITY</span>
+          <p>Decisions about these centres are made by government and large corporations. The community is barely consulted. Most residents do not know the buildings are data centres, or that they are here at all. People who do know them have little trust in the operators, and they fear expansion with nobody accountable. Jobs are the other worry. Once a centre is running, it does not need many staff.</p>
+        </div>
+        <div class="reveal">
+          <span class="mono tag">ENVIRONMENT</span>
+          <p>There is little public account of what these centres take — power, water, noise — or what that draw does to the people living nearby. From the street you meet a fence and a keep-out sign. The resource use stays inside.</p>
+        </div>
+      </div>
+
+      <div class="pair">
+        <figure class="reveal">
+          <img src="assets/EC%20-%20Datacentre%20Top%20of%20Centre.jpg" alt="Cooling plant and exhaust stacks behind the fence at the Eastern Creek data centre" />
+          <figcaption class="mono">17 Roberts Road. The building, from the street.</figcaption>
+        </figure>
+        <figure class="reveal">
+          <img src="assets/EC%20Datacentre%20-%20Construction%20Zone.jpg" alt="A person photographing the Eastern Creek data centre from behind construction barriers" />
+          <figcaption class="mono">Two of the six centres are still under construction.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- U04 — EVIDENCE (question 1, assessment 1 data) -->
+    <section class="evidence section" id="evidence" data-mode="dark" data-act="now">
+      <div class="section__head">
+        <span class="mono tag reveal">U04 — Q.01 — FROM ASSESSMENT 1</span>
+        <h2 class="title split">
+          <span class="line"><span>WHAT THE</span></span>
+          <span class="line"><span>DATA SHOWS.</span></span>
+        </h2>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal" data-cursor>
+          <span class="mono stat__id">DATA 01</span>
+          <span class="stat__num" data-count="6" data-plain>6</span>
+          <span>Data centres on the CDC campus</span>
+          <span class="mono">Eastern Creek · CDC</span>
+        </div>
+        <div class="stat reveal" data-cursor>
+          <span class="mono stat__id">DATA 02</span>
+          <span class="stat__num" data-count="4" data-plain>4</span>
+          <span>Completed</span>
+          <span class="mono">17 Roberts Road</span>
+        </div>
+        <div class="stat reveal" data-cursor>
+          <span class="mono stat__id">DATA 03</span>
+          <span class="stat__num" data-count="2" data-plain>2</span>
+          <span>Still under construction</span>
+          <span class="mono">17 Roberts Road</span>
+        </div>
+        <div class="stat reveal" data-cursor>
+          <span class="mono stat__id">DATA 04</span>
+          <span class="stat__num" data-count="45" data-suffix="%" data-plain>45%</span>
+          <span>Of Eastern Creek zoned general industrial</span>
+          <span class="mono">Eastern Creek</span>
+        </div>
+      </div>
+
+      <div class="finding">
+        <span class="mono tag reveal">FIVE FINDINGS — THEMATIC ANALYSIS</span>
+        <p class="quote reveal">The community is outside the decision, and outside the information.</p>
+        <ol class="questions">
+          <li class="reveal"><span class="mono">01</span><span>Construction and siting are decided by government and large corporations, with little or no community consultation.</span></li>
+          <li class="reveal"><span class="mono">02</span><span>There is little transparency about resource use, or about the effects on nearby communities.</span></li>
+          <li class="reveal"><span class="mono">03</span><span>Ongoing employment worries people. A running data centre needs few staff.</span></li>
+          <li class="reveal"><span class="mono">04</span><span>Most residents are uneducated about data centres, and unaware of the ones already in their suburb.</span></li>
+          <li class="reveal"><span class="mono">05</span><span>Residents who do know them have little trust in the corporations, and fear there is no accountability for the next expansion.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- U05 — FIELD (question 1, local) -->
+    <section class="near section" id="field" data-mode="dark" data-act="now">
+      <div class="section__head">
+        <span class="mono tag reveal">U05 — Q.01 — WHERE IT LANDS</span>
+        <h2 class="title split">
+          <span class="line"><span>CLOSER THAN</span></span>
+          <span class="line"><span>YOU THINK.</span></span>
+        </h2>
+        <p class="lead reveal">Eastern Creek is not one building. In Assessment 1 we mapped a precinct: centres, substations, and the grids that feed them. CDC is the campus we stood in front of.</p>
+      </div>
+
+      <div class="floor reveal">
+        <div class="floor__map floor__map--photo" id="floorMap">
+          <img src="assets/infrastructure%20map.jpeg" alt="Eastern Creek infrastructure map from Assessment 1, with six numbered sites" />
+        </div>
+        <div class="floor__panel">
+          <span class="mono tag">SELECTED NODE</span>
+          <span class="floor__name" id="pinName">CDC EASTERN CREEK</span>
+          <span class="mono floor__meta" id="pinMeta">17 ROBERTS ROAD</span>
+          <p id="pinNote">Six centres on this campus, at the corner of Capicure Drive. Four are built. Two are still going up. The other notes are the wider infrastructure plotted in Assessment 1.</p>
+          <div class="sites">
+            <button type="button" class="site active" data-cursor data-name="CDC EASTERN CREEK" data-meta="17 ROBERTS ROAD"
+              data-note="Six centres on this campus, at the corner of Capicure Drive. Four are built. Two are still going up. Linked locally to the adjacent campus and to transmission substations.">01 · CDC EC1</button>
+            <button type="button" class="site" data-cursor data-name="DATA CENTRE MOD 2" data-meta="90 PETER BROCK DRIVE"
+              data-note="Eastern Creek Data Centre, Mod 2. Mapped in Assessment 1 against a rise in power consumption.">02 · Mod 2</button>
+            <button type="button" class="site" data-cursor data-name="NEXTDC S7" data-meta="1 KANGAROO AVENUE"
+              data-note="NEXTDC S7, Honeycomb Drive. Built 2024. Sited close to power infrastructure and other digital hubs.">03 · NEXTDC S7</button>
+            <button type="button" class="site" data-cursor data-name="AMAZON AWS SYD" data-meta="EASTERN CREEK DRIVE"
+              data-note="Amazon AWS SYD. Operating since 2017, tied into the power grid, transport, and the industrial zones around it.">04 · AWS SYD</button>
+            <button type="button" class="site" data-cursor data-name="PROJECT ATLAS" data-meta="10 ROBERTS ROAD"
+              data-note="Project Atlas Data Centre, 10 Roberts Road. One site along the same road as CDC.">05 · Project Atlas</button>
+            <button type="button" class="site" data-cursor data-name="HIGH VOLTAGE PLANT" data-meta="11 ROBERTS ROAD"
+              data-note="Modification 3, the high voltage plant at 11 Roberts Road. Power for the precinct, not a place the public walks into.">06 · 11 Roberts Road</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- U06 — DIVIDE (entrance to question 2) -->
+    <section class="divide section" id="divide" data-mode="dark" data-act="tension">
+      <div class="section__head">
+        <span class="mono tag reveal">U06 — Q.01 → Q.02</span>
+        <h2 class="title split">
+          <span class="line"><span>ONE BUILDING.</span></span>
+          <span class="line"><span>TWO TRUTHS.</span></span>
+        </h2>
+      </div>
+      <div class="split-panel">
+        <a href="#challenge" class="split-panel__side split-panel__side--bad" data-cursor>
+          <span class="mono">Q.02 / THE CHALLENGE</span>
+          <span class="split-panel__word">THE BAD</span>
+          <span class="slot slot--small" data-slot="[ THE CHALLENGE, IN ONE LINE ]"></span>
+        </a>
+        <a href="#opportunity" class="split-panel__side split-panel__side--good" data-cursor>
+          <span class="mono">Q.02 / THE OPPORTUNITY</span>
+          <span class="split-panel__word">THE GOOD</span>
+          <span class="slot slot--small" data-slot="[ THE OPPORTUNITY, IN ONE LINE ]"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- U07 — CHALLENGE -->
+    <section class="bad section" id="challenge" data-mode="bad" data-act="tension">
+      <div class="alarm" aria-hidden="true">
+        <div class="alarm__track mono">
+          <span>▲ WARNING — SYSTEM LOAD CRITICAL — ▲ WARNING — RESOURCE DRAW EXCEEDED — ▲ WARNING — SYSTEM LOAD CRITICAL
+            — ▲ WARNING — RESOURCE DRAW EXCEEDED —&nbsp;</span>
+          <span>▲ WARNING — SYSTEM LOAD CRITICAL — ▲ WARNING — RESOURCE DRAW EXCEEDED — ▲ WARNING — SYSTEM LOAD CRITICAL
+            — ▲ WARNING — RESOURCE DRAW EXCEEDED —&nbsp;</span>
+        </div>
+      </div>
+      <div class="bad__strobe" aria-hidden="true"></div>
+
+      <div class="section__head">
+        <span class="mono tag reveal">U07 — Q.02 — THE CHALLENGE</span>
+        <h2 class="title title--xl split flicker">
+          <span class="line"><span>WHAT IT</span></span>
+          <span class="line"><span>TAKES.</span></span>
+        </h2>
+        <p class="slot lead reveal" data-slot="[ THE CHALLENGE THIS TRANSITION PRESENTS ]"></p>
+      </div>
+
+      <figure class="frame frame--wide frame--bad reveal-img" data-cursor>
+        <div class="frame__img parallax" data-speed="-0.08">
+          <img src="assets/racks.jpg" alt="A row of server racks in darkness" />
+        </div>
+        <div class="frame__hover mono">HOVER TO EXPOSE</div>
+        <figcaption class="mono"><span class="slot slot--inline" data-slot="[ CAPTION ]"></span></figcaption>
+      </figure>
+
+      <div class="faults">
+        <details class="fault reveal">
+          <summary data-cursor>
+            <span class="mono fault__id">FAULT 01</span>
+            <span class="fault__title">THE THIRST</span>
+            <span class="fault__plus" aria-hidden="true"></span>
+          </summary>
+          <div class="fault__body">
+            <p class="slot slot--deep" data-slot="[ THE CHALLENGE — WHAT IS HAPPENING ]"></p>
+            <div class="fault__side">
+              <p class="slot" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+              <p class="slot slot--small" data-slot="[ LENSES — ENVIRONMENTAL / SOCIAL / ECONOMIC / POLITICAL ]"></p>
+              <div class="img-slot" data-slot="[ IMAGE ]"></div>
+            </div>
+          </div>
+        </details>
+        <details class="fault reveal">
+          <summary data-cursor>
+            <span class="mono fault__id">FAULT 02</span>
+            <span class="fault__title">THE HUNGER</span>
+            <span class="fault__plus" aria-hidden="true"></span>
+          </summary>
+          <div class="fault__body">
+            <p class="slot slot--deep" data-slot="[ THE CHALLENGE — WHAT IS HAPPENING ]"></p>
+            <div class="fault__side">
+              <p class="slot" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+              <p class="slot slot--small" data-slot="[ LENSES — ENVIRONMENTAL / SOCIAL / ECONOMIC / POLITICAL ]"></p>
+              <div class="img-slot" data-slot="[ IMAGE ]"></div>
+            </div>
+          </div>
+        </details>
+        <details class="fault reveal">
+          <summary data-cursor>
+            <span class="mono fault__id">FAULT 03</span>
+            <span class="fault__title">THE HEAT</span>
+            <span class="fault__plus" aria-hidden="true"></span>
+          </summary>
+          <div class="fault__body">
+            <p class="slot slot--deep" data-slot="[ THE CHALLENGE — WHAT IS HAPPENING ]"></p>
+            <div class="fault__side">
+              <p class="slot" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+              <p class="slot slot--small" data-slot="[ LENSES — ENVIRONMENTAL / SOCIAL / ECONOMIC / POLITICAL ]"></p>
+              <div class="img-slot" data-slot="[ IMAGE ]"></div>
+            </div>
+          </div>
+        </details>
+        <details class="fault reveal">
+          <summary data-cursor>
+            <span class="mono fault__id">FAULT 04</span>
+            <span class="fault__title">THE SILENCE</span>
+            <span class="fault__plus" aria-hidden="true"></span>
+          </summary>
+          <div class="fault__body">
+            <p class="slot slot--deep" data-slot="[ THE CHALLENGE — WHAT IS HAPPENING ]"></p>
+            <div class="fault__side">
+              <p class="slot" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+              <p class="slot slot--small" data-slot="[ LENSES — ENVIRONMENTAL / SOCIAL / ECONOMIC / POLITICAL ]"></p>
+              <div class="img-slot" data-slot="[ IMAGE ]"></div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="bad__counter reveal">
+        <span class="mono tag">LIVE ESTIMATE</span>
+        <span class="bad__ticker" id="ticker" data-rate="137">0</span>
+        <span class="slot slot--small"
+          data-slot="[ WHAT THIS NUMBER MEANS — e.g. LITRES SINCE YOU OPENED THIS PAGE ]"></span>
+      </div>
+    </section>
+
+    <!-- U08 — TENSION -->
+    <section class="tension section" id="tension" data-mode="dark" data-act="tension">
+      <div class="tension__inner">
+        <span class="mono tag">U08 — Q.02 — THE TENSION</span>
+        <h2 class="title tension__title">
+          <span class="tension__word tension__word--bad">CHALLENGE</span>
+          <span class="tension__word tension__word--good">OPPORTUNITY</span>
+        </h2>
+        <div class="tension__texts">
+          <p class="slot tension__text tension__text--bad" data-slot="[ THE CHALLENGE SIDE OF THE TENSION ]"></p>
+          <p class="slot tension__text tension__text--good" data-slot="[ THE OPPORTUNITY SIDE OF THE TENSION ]"></p>
+        </div>
+        <label class="balance" data-cursor>
+          <span class="mono">BAD</span>
+          <input type="range" min="0" max="100" value="0" id="balance"
+            aria-label="Balance between the challenge and the opportunity" />
+          <span class="mono">GOOD</span>
+        </label>
+        <span class="mono hint">DRAG — OR KEEP SCROLLING</span>
+      </div>
+    </section>
+
+    <!-- U09 — OPPORTUNITY -->
+    <section class="good section" id="opportunity" data-mode="good" data-act="tension">
+      <div class="good__glow" aria-hidden="true"></div>
+
+      <div class="section__head">
+        <span class="mono tag reveal">U09 — Q.02 — THE OPPORTUNITY</span>
+        <h2 class="title title--xl split">
+          <span class="line"><span>WHAT IT</span></span>
+          <span class="line"><span>OPENS.</span></span>
+        </h2>
+        <p class="slot lead reveal" data-slot="[ THE OPPORTUNITY THIS TRANSITION PRESENTS ]"></p>
+      </div>
+
+      <figure class="frame frame--wide frame--good reveal-img">
+        <div class="frame__img parallax" data-speed="-0.08">
+          <img src="assets/corridor.jpg" alt="A bright datacentre hall" />
+        </div>
+        <figcaption class="mono"><span class="slot slot--inline" data-slot="[ CAPTION ]"></span></figcaption>
+      </figure>
+
+      <div class="benefits">
+        <article class="benefit reveal" data-cursor>
+          <span class="mono benefit__id">OPEN 01</span>
+          <h3 class="benefit__title">CONNECTION</h3>
+          <p class="slot" data-slot="[ THE OPPORTUNITY ]"></p>
+          <p class="slot slot--small" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+        </article>
+        <article class="benefit reveal" data-cursor>
+          <span class="mono benefit__id">OPEN 02</span>
+          <h3 class="benefit__title">KNOWLEDGE</h3>
+          <p class="slot" data-slot="[ THE OPPORTUNITY ]"></p>
+          <p class="slot slot--small" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+        </article>
+        <article class="benefit reveal" data-cursor>
+          <span class="mono benefit__id">OPEN 03</span>
+          <h3 class="benefit__title">WORK</h3>
+          <p class="slot" data-slot="[ THE OPPORTUNITY ]"></p>
+          <p class="slot slot--small" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+        </article>
+        <article class="benefit reveal" data-cursor>
+          <span class="mono benefit__id">OPEN 04</span>
+          <h3 class="benefit__title">FUTURE</h3>
+          <p class="slot" data-slot="[ THE OPPORTUNITY ]"></p>
+          <p class="slot slot--small" data-slot="[ WHAT THE RESEARCH FOUND ]"></p>
+        </article>
+      </div>
+
+      <div class="good__quote reveal">
+        <p class="slot slot--quote" data-slot="[ THE TENSION, HELD IN ONE STATEMENT ]"></p>
+        <span class="slot slot--small" data-slot="[ ATTRIBUTION ]"></span>
+      </div>
+    </section>
+
+    <!-- U10 — HORIZON (transition into question 3) -->
+    <section class="gate section" id="horizon" data-mode="dark" data-act="future">
+      <div class="gate__sticky">
+        <div class="gate__meta">
+          <span class="mono">Q.02 — TENSION</span>
+          <span class="mono">Q.03 — FUTURE</span>
+        </div>
+        <div class="gate__bar" aria-hidden="true"><i></i></div>
+        <h2 class="title title--xl gate__word">THE TENSION</h2>
+        <p>The community is outside the decision. These three levers are how they get back in.</p>
+      </div>
+    </section>
+
+    <!-- U11 — FUTURE (question 3, the vision) -->
+    <section class="future section" id="future" data-mode="dark" data-act="future">
+      <div class="section__head">
+        <span class="mono tag reveal">U11 — Q.03 — THE PROPOSAL</span>
+        <h2 class="title split">
+          <span class="line"><span>WHAT WE</span></span>
+          <span class="line"><span>BUILD.</span></span>
+        </h2>
+      </div>
+
+      <p class="reveal prose">A digital future that belongs to the people who live with it. Residents know the good and the bad of data centre growth, and they have a way to shape what happens next — in the languages they speak, in the places they already gather, with evidence they can actually use.</p>
+
+      <div class="innovations">
+        <article class="innovation reveal" data-cursor>
+          <span class="mono">ECONOMIC</span>
+          <p>Council and CDC share the cost, with government grants. CDC carries a real share, because a centre the public trusts is worth more to them than one the public fears.</p>
+        </article>
+        <article class="innovation reveal" data-cursor>
+          <span class="mono">SOCIAL</span>
+          <p>Libraries, community centres, and schools. Sessions for young people, older people, and local businesses, with Aboriginal and Torres Strait Islander and cultural organisations. Workshops where residents describe the Eastern Creek they want in 2050.</p>
+        </article>
+        <article class="innovation reveal" data-cursor>
+          <span class="mono">TECHNOLOGICAL</span>
+          <p>Jargon out. Plain English, infographics, short videos, and maps, using real figures from CDC, Sydney Water, and Endeavour Energy. One shared template, so every report can be compared with the last.</p>
+        </article>
+        <article class="innovation reveal" data-cursor>
+          <span class="mono">POLITICAL</span>
+          <p>An independent facilitator keeps the campaign honest. Large approvals stay with the State. Quarterly reports say what was promised, what happened, and what was done with community concerns.</p>
+        </article>
+      </div>
+
+      <nav class="lever-index reveal" aria-label="Proposed levers">
+        <a href="#educate" data-cursor><span class="mono">LEVER 01</span><span>PUBLIC EDUCATION</span></a>
+        <a href="#workshop" data-cursor><span class="mono">LEVER 02</span><span>FUTURE WORKSHOPS</span></a>
+        <a href="#transparency" data-cursor><span class="mono">LEVER 03</span><span>TRANSPARENCY</span></a>
+      </nav>
+    </section>
+
+    <div class="handoff reveal">
+      <span class="mono">THE VISION</span>
+      <span class="handoff__line"><i></i></span>
+      <span class="mono">LEVER 01</span>
+    </div>
+
+    <!-- U12 — PUBLIC EDUCATION -->
+    <section class="lever section" id="educate" data-mode="dark" data-act="future">
+      <div class="section__head">
+        <div class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="mono tag reveal">U12 — Q.03 — STANLEE — LEVER 01</span>
+        <h2 class="title split">
+          <span class="line"><span>PUBLIC</span></span>
+          <span class="line"><span>EDUCATION.</span></span>
+        </h2>
+      </div>
+
+      <div class="lever__grid">
+        <div class="reveal">
+          <p>Every search, every stream, every photo saved to the cloud exists somewhere. More and more of it is in Eastern Creek. Few people know what a data centre uses, or how to say where the next one should be built.</p>
+          <p>This campaign closes that gap. Residents learn the good and the bad, and they leave able to choose.</p>
+        </div>
+        <figure class="reveal">
+          <img src="assets/tape-library.jpg" alt="A tape library aisle, the physical store behind cloud storage" />
+          <figcaption class="mono">The cloud has a street address.</figcaption>
+        </figure>
+      </div>
+
+      <div class="lever__path">
+        <div class="reveal">
+          <span class="mono tag">WHO IT REACHES</span>
+          <p>Libraries, community centres, and local schools. Run in the community’s main languages, with sessions for young people, older people, and local businesses. In collaboration with Aboriginal and Torres Strait Islander and cultural organisations, so the work holds its integrity.</p>
+        </div>
+        <div class="reveal">
+          <span class="mono tag">WHAT IT TEACHES</span>
+          <p>Plain English in place of jargon. Infographics, short videos, and maps on the Council website, social media, and newsletters. The numbers are real: energy, water, noise, and jobs, from CDC, Sydney Water, and Endeavour Energy.</p>
+        </div>
+        <div class="reveal">
+          <span class="mono tag">WHAT CHANGES</span>
+          <p>An independent facilitator keeps it neutral, so this is not the operator talking about itself. The large approvals stay with the State. It goes live in 6 to 12 months, and it is measured, so we know whether it worked.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="handoff handoff--rise reveal">
+      <span class="mono">LEVER 01</span>
+      <span class="handoff__line"><i></i></span>
+      <span class="mono">LEVER 02</span>
+    </div>
+
+    <!-- U13 — FUTURE WORKSHOPS -->
+    <section class="good workshop section" id="workshop" data-mode="good" data-act="future">
+      <div class="good__glow" aria-hidden="true"></div>
+
+      <div class="section__head">
+        <span class="mono tag reveal">U13 — Q.03 — LORENZO — LEVER 02</span>
+        <h2 class="title split">
+          <span class="line"><span>FUTURE</span></span>
+          <span class="line"><span>WORKSHOPS.</span></span>
+        </h2>
+        <p class="lead reveal">We do not ask people if they support data centres. We ask what they want this place to look like in 2050, then test growth against that. We know it works. We already did it in an interview.</p>
+      </div>
+
+      <div class="scenarios" id="scenarios">
+        <button type="button" class="scenario is-on" data-panel="a" data-cursor>
+          <span class="mono">SCENARIO A</span>
+          <span>The future she wanted</span>
+        </button>
+        <button type="button" class="scenario" data-panel="b" data-cursor>
+          <span class="mono">SCENARIO B</span>
+          <span>What growth costs</span>
+        </button>
+        <button type="button" class="scenario" data-panel="c" data-cursor>
+          <span class="mono">SCENARIO C</span>
+          <span>Where it gets built</span>
+        </button>
+      </div>
+
+      <div class="scenario__stage">
+        <div class="scenario__panel is-on" data-panel="a">
+          <p>2050, in her words: safe, green, affordable, with less traffic. She could not tell a data centre from a warehouse. She could judge one once she had a future to set it against.</p>
+          <div class="horizon-row">
+            <div>
+              <span class="mono">NOW</span>
+              <p>Residents describe the place they want, before anyone asks them to approve a building.</p>
+            </div>
+            <div>
+              <span class="mono">NEXT</span>
+              <p>Council holds that description still, and tests every growth scenario against it.</p>
+            </div>
+            <div>
+              <span class="mono">LATER</span>
+              <p>What leaves the room is a community position statement.</p>
+            </div>
+          </div>
+        </div>
+        <div class="scenario__panel" data-panel="b">
+          <p>Asked what more centres would mean, she said more traffic, more construction, more trucks. The workshop does not argue with that. It writes it down and makes Council answer it.</p>
+          <div class="horizon-row">
+            <div>
+              <span class="mono">NOW</span>
+              <p>Name the cost in the resident’s own words. Traffic. Construction. Trucks.</p>
+            </div>
+            <div>
+              <span class="mono">NEXT</span>
+              <p>Each growth scenario is scored against the future the room already described.</p>
+            </div>
+            <div>
+              <span class="mono">LATER</span>
+              <p>A proposal that fails that future does not get a free pass.</p>
+            </div>
+          </div>
+        </div>
+        <div class="scenario__panel" data-panel="c">
+          <p>“Depends where they build them.” Losing trees would be bad. If the land is already industrial, she said, it may matter less. The place and the building are not the same question.</p>
+          <div class="horizon-row">
+            <div>
+              <span class="mono">NOW</span>
+              <p>Separate the building from the ground it stands on.</p>
+            </div>
+            <div>
+              <span class="mono">NEXT</span>
+              <p>Industrial land is weighed differently from trees, homes, and streets.</p>
+            </div>
+            <div>
+              <span class="mono">LATER</span>
+              <p>The position statement says where growth can go, and where it cannot.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lever__path">
+        <div class="reveal">
+          <span class="mono tag">WHO IS IN THE ROOM</span>
+          <p>Residents. Council convenes them. The proof we already have is one interview. The workshop is that conversation, held with the whole suburb.</p>
+        </div>
+        <div class="reveal">
+          <span class="mono tag">HOW IT RUNS</span>
+          <p>People describe 2050. Council tests growth against what they say, and feeds it into planning submissions. It only works if the transparency lever supplies the data.</p>
+        </div>
+        <div class="reveal">
+          <span class="mono tag">WHAT IT PRODUCES</span>
+          <p>A community position statement. Not a yes or a no. A future the next proposal has to face.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="handoff handoff--drop reveal">
+      <span class="mono">LEVER 02</span>
+      <span class="handoff__line"><i></i></span>
+      <span class="mono">LEVER 03</span>
+    </div>
+
+    <!-- U14 — TRANSPARENCY -->
+    <section class="law section" id="transparency" data-mode="dark" data-act="future">
+      <div class="section__head">
+        <span class="mono tag reveal">U14 — Q.03 — JERRY &amp; RAY — LEVER 03</span>
+        <h2 class="title split">
+          <span class="line"><span>TRANS</span></span>
+          <span class="line"><span>PARENCY.</span></span>
+        </h2>
+        <p class="lead reveal">Residents need information they can use. Some of it is already public. Council’s job is to gather it and say it in plain language, including translated and printed summaries.</p>
+      </div>
+
+      <figure class="redact reveal" data-cursor>
+        <img src="assets/EC%20Datacentre%20-%20Keep%20Out%20Gate.jpg" alt="A keep out sign on the fence of the Eastern Creek data centre" />
+        <div class="redact__mask" aria-hidden="true"></div>
+        <span class="redact__label mono">REDACTED — HOVER TO DISCLOSE</span>
+      </figure>
+
+      <ol class="clauses">
+        <li class="reveal">
+          <span class="mono">ART.01</span>
+          <span class="clause__name">DISCLOSE</span>
+          <p>Quarterly reports on electricity, water, noise, and environmental promises. Each one shows what the operator promised, what actually happened, and how community concerns were answered.</p>
+        </li>
+        <li class="reveal">
+          <span class="mono">ART.02</span>
+          <span class="clause__name">ACCOUNT</span>
+          <p>Start with a pilot. One willing operator and Blacktown City Council, six months, two quarterly reports, one shared template. The operator supplies the data and helps fund the monitoring. Council makes the reports easy to find. An independent expert checks the figures.</p>
+        </li>
+        <li class="reveal">
+          <span class="mono">ART.03</span>
+          <span class="clause__name">USE</span>
+          <p>The reports are what the workshops compare futures with, and what the education campaign teaches from. Personal information stays out. So does anything that would compromise security.</p>
+        </li>
+        <li class="reveal">
+          <span class="mono">ART.04</span>
+          <span class="clause__name">ENFORCE</span>
+          <p>A rule that makes this mandatory needs legal review and the NSW planning authority. It is working if the reports arrive on time, residents can understand them, and a concern gets a clear answer. The hard part is staff time, and an operator willing to go first.</p>
+        </li>
+      </ol>
+
+      <blockquote class="quote reveal">
+        I used to think publishing information was enough. People also need help understanding it.
+        <span class="mono">Jerry</span>
+      </blockquote>
+    </section>
+
+    <div class="handoff reveal">
+      <span class="mono">THE LEVERS</span>
+      <span class="handoff__line"><i></i></span>
+      <span class="mono">THE PATHWAY</span>
+    </div>
+
+    <!-- U15 — PATHWAYS -->
+    <section class="speak section" id="pathways" data-mode="dark" data-act="pathways">
+      <div class="section__head">
+        <span class="mono tag reveal">U15 — THE PATHWAY</span>
+        <h2 class="title title--xl split">
+          <span class="line"><span>THE CONVERSATION</span></span>
+          <span class="line"><span>IS YOURS.</span></span>
+        </h2>
+      </div>
+
+      <div class="threads">
+        <article class="thread reveal" data-cursor>
+          <span class="mono">01 — EDUCATION</span>
+          <p>Residents learn the good and the bad in the places they already gather, and leave able to choose.</p>
+        </article>
+        <article class="thread reveal" data-cursor>
+          <span class="mono">02 — WORKSHOPS</span>
+          <p>Council tests growth against a future residents have described, and writes it into a position statement.</p>
+        </article>
+        <article class="thread reveal" data-cursor>
+          <span class="mono">03 — TRANSPARENCY</span>
+          <p>Quarterly reports, in plain language, supply the evidence the other two levers run on.</p>
+        </article>
+      </div>
+
+      <p class="reveal pathway__join prose">Education tells people the machine is here. Workshops turn that knowledge into a position. Transparency is the evidence both of them need. Take one away and the other two stall. An inclusive future starts with knowing what is in your own backyard.</p>
+
+      <div class="cols">
+        <p class="reveal">Put the three questions to the room. They are the same questions the research asked the suburb.</p>
+        <ol class="questions reveal">
+          <li><span class="mono">Q.01</span><span>What do you want Eastern Creek to feel like in 2050?</span></li>
+          <li><span class="mono">Q.02</span><span>What would a quarterly report have to show before you trusted it?</span></li>
+          <li><span class="mono">Q.03</span><span>Where should the next centre be allowed to stand?</span></li>
+        </ol>
+      </div>
+
+      <div class="actions reveal">
+        <a href="#educate" class="btn" data-cursor><i class="led"></i><span>THE CAMPAIGN</span></a>
+        <a href="#workshop" class="btn" data-cursor><i class="led"></i><span>THE WORKSHOP</span></a>
+        <a href="#transparency" class="btn" data-cursor><i class="led"></i><span>THE REPORT</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" data-mode="dark">
+    <div class="footer__mark">DATA CENTRES</div>
+    <div class="footer__row">
+      <a href="mailto:" class="mono" data-cursor>[ EMAIL ]</a>
+      <span class="mono">END OF RACK — U15 / U15</span>
+      <a href="#hero" class="mono" data-cursor>BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
